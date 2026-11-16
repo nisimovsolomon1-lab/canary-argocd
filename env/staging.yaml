@@ -1,0 +1,6 @@
+environment: staging
+replicas: {stable: 4, canary: 0}
+versions: {stable: v1, canary: v2}
+resources:
+  requests: {cpu: 100m, memory: 64Mi}
+  limits: {cpu: 250m, memory: 128Mi}

@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: canary-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/nisimovsolomon1-lab/canary-argocd.git
+    targetRevision: main
+    path: chart
+    helm:
+      releaseName: web
+      valueFiles:
+        - ../env/dev.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
