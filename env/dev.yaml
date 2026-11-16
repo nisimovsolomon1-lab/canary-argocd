@@ -1,5 +1,5 @@
 environment: dev
-replicas: {stable: 0, canary: 4}
+replicas: {stable: 4, canary: 4}
 versions: {stable: v1, canary: v2}
 resources:
   requests: {cpu: 50m, memory: 64Mi}
